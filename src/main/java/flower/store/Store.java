@@ -32,7 +32,8 @@ public class Store {
             for (FlowerPack pack : bucket.getFlowerPacks()) {
                 Flower flower = pack.getFlower();
                 boolean matchesColor = (color == null 
-                                        || flower.getColor().equals(color.toString()));
+                                        || flower.getColor().equals(
+                                            color.toString()));
                 boolean matchesType = (type == null 
                                        || flower.getFlowerType() == type);
     
