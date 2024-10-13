@@ -25,4 +25,23 @@ public class FlowerBucket {
         }
         return price;
     }
+    
+    public boolean isWithinPriceRange(
+        Double minPrice, Double maxPrice) {
+        double totalPrice = this.getPrice();
+        return (minPrice == null || totalPrice >= minPrice) &&
+         (maxPrice == null || totalPrice <= maxPrice);
+    }
+    
+    public boolean containsMatchingFlower(
+        FlowerColor color, FlowerType type) {
+        for (FlowerPack pack : this.getFlowerPacks()) {
+            Flower flower = pack.getFlower();
+            if (flower.matchesColor(color) 
+            && flower.matchesType(type)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
