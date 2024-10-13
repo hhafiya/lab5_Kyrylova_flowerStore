@@ -27,12 +27,12 @@ public class FlowerBucketTest {
     private static final int BLUE_TULIP_PACK_QUANTITY = 2;
     private static final int WHITE_ROSE_PACK_QUANTITY = 1;
 
-    private static final double PRICE_RANGE_MIN_10 = 10.0;
-    private static final double PRICE_RANGE_MAX_20 = 20.0;
-    private static final double PRICE_RANGE_MIN_20 = 20.0;
-    private static final double PRICE_RANGE_MAX_30 = 30.0;
-    private static final double PRICE_RANGE_MIN_0 = 0.0;
-    private static final double PRICE_RANGE_MAX_10 = 10.0;
+    private static final double PRICE_RANGE_MIN_TEN = 10.0;
+    private static final double PRICE_RANGE_MAX_TWENTY = 20.0;
+    private static final double PRICE_RANGE_MIN_TWENTY = 20.0;
+    private static final double PRICE_RANGE_MAX_THIRTY = 30.0;
+    private static final double PRICE_RANGE_MIN_ZERO = 0.0;
+    private static final double PRICE_RANGE_MAX_TEN = 10.0;
 
     private FlowerBucket flowerBucket;
     private Store store;
@@ -58,8 +58,10 @@ public class FlowerBucketTest {
     public void testSearchByPriceWithMultipleBuckets() {
         FlowerBucket bucketOne = new FlowerBucket();
         Flower redRose = new Flower(
-                FlowerColor.RED, RED_ROSE_SEPAL_LENGTH, RED_ROSE_PRICE, FlowerType.ROSE);
-        bucketOne.addFlowerPack(new FlowerPack(redRose, RED_ROSE_PACK_QUANTITY));
+                FlowerColor.RED, RED_ROSE_SEPAL_LENGTH, 
+            RED_ROSE_PRICE, FlowerType.ROSE);
+        bucketOne.addFlowerPack(new FlowerPack(redRose,
+                                               RED_ROSE_PACK_QUANTITY));
 
         Flower yellowTulip = new Flower(
                 FlowerColor.YELLOW, YELLOW_TULIP_SEPAL_LENGTH, 
@@ -94,13 +96,16 @@ public class FlowerBucketTest {
         store.addFlowerBucket(bucketThree);
 
         List<FlowerBucket> foundBuckets = store.search(null, null, 
-                                                       PRICE_RANGE_MIN_10, PRICE_RANGE_MAX_20);
+                                                       PRICE_RANGE_MIN_TEN,
+                                                       PRICE_RANGE_MAX_TWENTY);
         assertEquals(2, foundBuckets.size());
 
-        foundBuckets = store.search(null, null, PRICE_RANGE_MIN_20, PRICE_RANGE_MAX_30);
+        foundBuckets = store.search(null, null, 
+                                    PRICE_RANGE_MIN_TWENTY, PRICE_RANGE_MAX_THIRTY);
         assertEquals(1, foundBuckets.size());
 
-        foundBuckets = store.search(null, null, PRICE_RANGE_MIN_0, PRICE_RANGE_MAX_10);
+        foundBuckets = store.search(null, null, 
+                                    PRICE_RANGE_MIN_ZERO, PRICE_RANGE_MAX_TEN);
         assertEquals(1, foundBuckets.size());
     }
 }
