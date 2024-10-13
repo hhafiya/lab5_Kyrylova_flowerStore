@@ -108,5 +108,29 @@ public class FlowerBucketTest {
                                     PRICE_RANGE_MIN_ZERO, PRICE_RANGE_MAX_TEN);
         assertEquals(1, foundBuckets.size());
     }
+
+    @Test
+    public void testSearchByPriceWithNoMatches() {
+        Flower redRose = new Flower(
+                FlowerColor.RED, 
+                RED_ROSE_SEPAL_LENGTH, 
+                RED_ROSE_PRICE, FlowerType.ROSE);
+        FlowerPack redRosePack = new FlowerPack(
+            redRose, RED_ROSE_PACK_QUANTITY);
+        flowerBucket.addFlowerPack(redRosePack);
+
+        Flower yellowTulip = new Flower(
+                FlowerColor.YELLOW, YELLOW_TULIP_SEPAL_LENGTH, 
+                YELLOW_TULIP_PRICE, FlowerType.TULIP);
+        FlowerPack yellowTulipPack = new FlowerPack(yellowTulip, 
+        YELLOW_TULIP_PACK_QUANTITY);
+        flowerBucket.addFlowerPack(yellowTulipPack);
+
+        store.addFlowerBucket(flowerBucket);
+
+        List<FlowerBucket> foundBuckets = store.search(
+            FlowerColor.BLUE, null);
+        assertEquals(0, foundBuckets.size());
+    }
 }
 
