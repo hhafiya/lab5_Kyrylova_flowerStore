@@ -105,7 +105,8 @@ public class FlowerBucketTest {
         foundBuckets = store.search(null, null, 
                                     PRICE_RANGE_MIN_TWENTY,
                                     PRICE_RANGE_MAX_THIRTY);
-                                    Assertions.assertEquals(1, foundBuckets.size());
+                                    Assertions.assertEquals(
+                                        1, foundBuckets.size());
 
         foundBuckets = store.search(null, null, 
                                     PRICE_RANGE_MIN_ZERO, 
