@@ -29,8 +29,8 @@ public class FlowerBucket {
     public boolean isWithinPriceRange(
         Double minPrice, Double maxPrice) {
         double totalPrice = this.getPrice();
-        return (minPrice == null || totalPrice >= minPrice) &&
-         (maxPrice == null || totalPrice <= maxPrice);
+        return (minPrice == null || totalPrice >= minPrice) 
+            && (maxPrice == null || totalPrice <= maxPrice);
     }
     
     public boolean containsMatchingFlower(
