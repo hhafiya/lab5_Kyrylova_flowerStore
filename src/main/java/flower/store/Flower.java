@@ -13,14 +13,14 @@ public class Flower {
     private double price;
     private FlowerType flowerType;
 
-    public Flower(Flower flower){
+    public Flower(Flower flower) {
         color = flower.color;
         sepalLength = flower.sepalLength;
         price = flower.price;
         flowerType = flower.flowerType;
     }
 
-    public String getColor(){
+    public String getColor() {
         return color.toString();
     }
 }
