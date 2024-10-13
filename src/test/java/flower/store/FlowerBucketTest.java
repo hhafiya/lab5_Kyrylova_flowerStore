@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import java.util.List;
 import java.util.Random;
 
 public class FlowerBucketTest {
@@ -98,16 +99,19 @@ public class FlowerBucketTest {
         List<FlowerBucket> foundBuckets = store.search(null, null, 
                                                        PRICE_RANGE_MIN_TEN,
                                                        PRICE_RANGE_MAX_TWENTY);
-        assertEquals(2, foundBuckets.size());
+                                                       Assertions.assertEquals(
+                                                        2, foundBuckets.size());
 
         foundBuckets = store.search(null, null, 
                                     PRICE_RANGE_MIN_TWENTY,
                                     PRICE_RANGE_MAX_THIRTY);
-        assertEquals(1, foundBuckets.size());
+                                    Assertions.assertEquals(1, foundBuckets.size());
 
         foundBuckets = store.search(null, null, 
-                                    PRICE_RANGE_MIN_ZERO, PRICE_RANGE_MAX_TEN);
-        assertEquals(1, foundBuckets.size());
+                                    PRICE_RANGE_MIN_ZERO, 
+                                    PRICE_RANGE_MAX_TEN);
+                                    Assertions.assertEquals(
+                                        1, foundBuckets.size());
     }
 
     @Test
@@ -131,7 +135,8 @@ public class FlowerBucketTest {
 
         List<FlowerBucket> foundBuckets = store.search(
             FlowerColor.BLUE, null);
-        assertEquals(0, foundBuckets.size());
+            Assertions.assertEquals(0, foundBuckets.size());
     }
 }
+
 
