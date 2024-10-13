@@ -23,5 +23,14 @@ public class Flower {
     public String getColor() {
         return color.toString();
     }
+    public boolean matchesColor(FlowerColor color) {
+        return color == null ||
+         this.getColor().equals(color.toString());
+    }
+    
+    public boolean matchesType(FlowerType type) {
+        return type == null ||
+         this.getFlowerType() == type;
+    }
 }
 
