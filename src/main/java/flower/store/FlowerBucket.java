@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlowerBucket {
-    List<FlowerPack> flowerPacks;
+    private List<FlowerPack> flowerPacks;
 
-    public FlowerBucket(){
-        flowerPacks = new ArrayList<>();
+    public FlowerBucket() {
+       flowerPacks = new ArrayList<>();
     }
 
-    public void addFlowerPack(FlowerPack flowerPack){
+    public void addFlowerPack(FlowerPack flowerPack) {
         flowerPacks.add(flowerPack);
     }
 
@@ -18,9 +18,9 @@ public class FlowerBucket {
         return flowerPacks;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         double price = 0;
-        for (FlowerPack flowerPack: flowerPacks){
+        for (FlowerPack flowerPack: flowerPacks) {
             price += flowerPack.getPrice();
         }
         return price;
