@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Store {
-    List<FlowerBucket> flowerBuckets;
+    private List<FlowerBucket> flowerBuckets;
 
-    public Store(){
+    public Store() {
         flowerBuckets = new ArrayList<>();
     }
 
@@ -18,16 +18,23 @@ public class Store {
         return search(color, type, null, null);
     }
     
-    public List<FlowerBucket> search(FlowerColor color, FlowerType type, Double minPrice, Double maxPrice) {
+    public List<FlowerBucket> search(FlowerColor color, 
+                                     FlowerType type, 
+                                     Double minPrice, 
+                                     Double maxPrice) {
         List<FlowerBucket> result = new ArrayList<>();
         for (FlowerBucket bucket : flowerBuckets) {
             double totalPrice = bucket.getPrice();
-            boolean withinPriceRange = (minPrice == null || totalPrice >= minPrice) && (maxPrice == null || totalPrice <= maxPrice);
+            boolean withinPriceRange = (minPrice == null 
+                                        || totalPrice >= minPrice)
+                && (maxPrice == null || totalPrice <= maxPrice);
     
             for (FlowerPack pack : bucket.getFlowerPacks()) {
                 Flower flower = pack.getFlower();
-                boolean matchesColor = (color == null || flower.getColor().equals(color.toString()));
-                boolean matchesType = (type == null || flower.getFlowerType() == type);
+                boolean matchesColor = (color == null 
+                                        || flower.getColor().equals(color.toString()));
+                boolean matchesType = (type == null 
+                                       || flower.getFlowerType() == type);
     
                 if (matchesColor && matchesType && withinPriceRange) {
                     result.add(bucket);
