@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.Random;
-import java.util.List;
 
 public class FlowerBucketTest {
     private static final Random RANDOM_GENERATOR = new Random();
